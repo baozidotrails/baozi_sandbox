@@ -1,0 +1,22 @@
+
+<tr>
+  <td><%= user.id %></td>
+  <td><%= gravatar_for user %></td>
+  <td>
+    <%= link_to user.name, user %>
+
+    <div class="text-right">
+
+      <% if current_user.admin? %>
+
+        <%= link_to raw("<i class='icon-pencil'></i>"), edit_user_path(user), class: "btn btn-mini" %>
+        <%= link_to raw("<i class='icon-trash icon-white'></i>"), user_path(user), method: :delete, confirm: "你確定？", class: "btn btn-mini btn-danger" %>
+      <% else %>
+        <% if current_user?(user) %>
+          <%= link_to raw("<i class='icon-pencil'></i>"), edit_user_path(user), class: "btn btn-mini" %>
+        <% end %>
+      <% end %>
+    </div>
+  </td>
+
+</tr>

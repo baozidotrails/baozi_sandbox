@@ -1,0 +1,32 @@
+<div class="navbar  navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= image_tag("bao_now.png", alt: "logo", id: "logo_img") %>
+      <%= link_to "Baozi's Sandbox", root_path, id: "logo" %>
+      <ul class="nav pull-right">
+
+        <li><%= link_to "首頁", root_path %></li>
+        <li class="<%= "active" if current_page?(help_path) %>"><%= link_to "幫助", help_path %></li>
+          <% if signed_in? %>
+            <li class="<%= "active" if current_page?(users_path) %>"><%= link_to "使用者列表", users_path %></li>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= current_user.name %> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "個人資料", current_user %></li>
+                <li><%= link_to "設定", edit_user_path(current_user) %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "登出", sign_out_path, method: "delete" %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li class="<%= "active" if current_page?(sign_in_path) %>"><%= link_to "登入", sign_in_path %></li>
+          <% end %>
+
+      </ul>
+    </div>
+  </div>
+</div>
