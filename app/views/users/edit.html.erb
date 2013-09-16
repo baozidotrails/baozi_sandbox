@@ -6,9 +6,8 @@
     <div class="control-group">
       <%= f.label "大頭貼", class: "control-label" %>
       <div class="controls">
-        <%= gravatar_for @user %>
-        <br>
-        <a href="http://gravatar.com/emails">修改</a>
+        <%= gravatar_for @user, size: 100 %>
+        <!-- <a href="http://gravatar.com/emails" class="btn"><i class="icon-pencil"></i></a> -->
       </div>
     </div>
     <div class="control-group">
